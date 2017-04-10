@@ -1,0 +1,13 @@
+c:\users\khaibin\documents\visual studio 2017\Projects\WindowsApp1\WindowsApp1\bin\Debug\WindowsApp1.exe.config
+c:\users\khaibin\documents\visual studio 2017\Projects\WindowsApp1\WindowsApp1\bin\Debug\WindowsApp1.exe
+c:\users\khaibin\documents\visual studio 2017\Projects\WindowsApp1\WindowsApp1\bin\Debug\WindowsApp1.pdb
+c:\users\khaibin\documents\visual studio 2017\Projects\WindowsApp1\WindowsApp1\bin\Debug\WindowsApp1.xml
+c:\users\khaibin\documents\visual studio 2017\Projects\WindowsApp1\WindowsApp1\obj\Debug\WindowsApp1.vbprojResolveAssemblyReference.cache
+c:\users\khaibin\documents\visual studio 2017\Projects\WindowsApp1\WindowsApp1\obj\Debug\WindowsApp1.Resources.resources
+c:\users\khaibin\documents\visual studio 2017\Projects\WindowsApp1\WindowsApp1\obj\Debug\WindowsApp1.vbproj.GenerateResource.Cache
+c:\users\khaibin\documents\visual studio 2017\Projects\WindowsApp1\WindowsApp1\obj\Debug\WindowsApp1.exe
+c:\users\khaibin\documents\visual studio 2017\Projects\WindowsApp1\WindowsApp1\obj\Debug\WindowsApp1.xml
+c:\users\khaibin\documents\visual studio 2017\Projects\WindowsApp1\WindowsApp1\obj\Debug\WindowsApp1.pdb
+C:\Users\khaibin\documents\visual studio 2017\Projects\WindowsApp1\WindowsApp1\obj\Debug\WindowsApp1.Login.resources
+C:\Users\khaibin\documents\visual studio 2017\Projects\WindowsApp1\WindowsApp1\obj\Debug\WindowsApp1.Dashboard.resources
+C:\Users\khaibin\documents\visual studio 2017\Projects\WindowsApp1\WindowsApp1\obj\Debug\WindowsApp1.ChangePassword.resources
