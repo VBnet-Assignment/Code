@@ -8,6 +8,7 @@
         lecturePassword = Login.ds.Tables("Lecturer").Rows(userID).Item(2)
         lectureName = Login.ds.Tables("Lecturer").Rows(userID).Item(1)
         Me.Text = "Dashboard – " & lectureName & " (" & lectureID & ")"
+        lblGreeting.Text = "Welcome, " & lectureName
     End Sub
 
     Private Sub LogOutToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles LogOutToolStripMenuItem.Click
