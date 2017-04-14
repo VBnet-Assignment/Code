@@ -12,7 +12,6 @@
         con.Open()
         da.Fill(ds, "Lecturer")
         con.Close()
-        Me.ReportViewer1.RefreshReport
     End Sub
 
     Private Sub btnLogin_Click(sender As Object, e As EventArgs) Handles btnLogin.Click

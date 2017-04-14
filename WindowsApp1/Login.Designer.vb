@@ -109,7 +109,7 @@ Partial Class Login
         Me.picLogo.BackgroundImage = CType(resources.GetObject("picLogo.BackgroundImage"), System.Drawing.Image)
         Me.picLogo.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center
         Me.picLogo.Location = New System.Drawing.Point(131, 98)
-        Me.picLogo.Margin = New System.Windows.Forms.Padding(7, 7, 7, 7)
+        Me.picLogo.Margin = New System.Windows.Forms.Padding(7)
         Me.picLogo.Name = "picLogo"
         Me.picLogo.Size = New System.Drawing.Size(670, 236)
         Me.picLogo.TabIndex = 5
@@ -119,7 +119,7 @@ Partial Class Login
         '
         Me.btnLogin.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.25!)
         Me.btnLogin.Location = New System.Drawing.Point(376, 587)
-        Me.btnLogin.Margin = New System.Windows.Forms.Padding(7, 7, 7, 7)
+        Me.btnLogin.Margin = New System.Windows.Forms.Padding(7)
         Me.btnLogin.Name = "btnLogin"
         Me.btnLogin.Size = New System.Drawing.Size(194, 83)
         Me.btnLogin.TabIndex = 7
