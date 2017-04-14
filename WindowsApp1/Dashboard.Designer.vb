@@ -29,6 +29,9 @@ Partial Class Dashboard
         Me.lblGreeting = New System.Windows.Forms.Label()
         Me.ListBox1 = New System.Windows.Forms.ListBox()
         Me.Label1 = New System.Windows.Forms.Label()
+        Me.Button1 = New System.Windows.Forms.Button()
+        Me.Button2 = New System.Windows.Forms.Button()
+        Me.Button3 = New System.Windows.Forms.Button()
         Me.MenuStrip1.SuspendLayout()
         Me.SuspendLayout()
         '
@@ -38,7 +41,7 @@ Partial Class Dashboard
         Me.MenuStrip1.Items.AddRange(New System.Windows.Forms.ToolStripItem() {Me.OptionsToolStripMenuItem})
         Me.MenuStrip1.Location = New System.Drawing.Point(0, 0)
         Me.MenuStrip1.Name = "MenuStrip1"
-        Me.MenuStrip1.Size = New System.Drawing.Size(390, 24)
+        Me.MenuStrip1.Size = New System.Drawing.Size(381, 24)
         Me.MenuStrip1.TabIndex = 4
         Me.MenuStrip1.Text = "MenuStrip1"
         '
@@ -65,36 +68,69 @@ Partial Class Dashboard
         '
         Me.lblGreeting.Anchor = System.Windows.Forms.AnchorStyles.Right
         Me.lblGreeting.AutoSize = True
-        Me.lblGreeting.Location = New System.Drawing.Point(12, 53)
+        Me.lblGreeting.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.lblGreeting.Location = New System.Drawing.Point(12, 38)
         Me.lblGreeting.Name = "lblGreeting"
-        Me.lblGreeting.Size = New System.Drawing.Size(87, 13)
+        Me.lblGreeting.Size = New System.Drawing.Size(100, 15)
         Me.lblGreeting.TabIndex = 5
         Me.lblGreeting.Text = "Welcome, Admin"
         '
         'ListBox1
         '
-        Me.ListBox1.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.5!)
+        Me.ListBox1.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.ListBox1.FormattingEnabled = True
+        Me.ListBox1.ItemHeight = 15
         Me.ListBox1.Items.AddRange(New Object() {"UCDF1504ICT", "UCDF1604ICT(SE)", "UCDF1605BIT"})
-        Me.ListBox1.Location = New System.Drawing.Point(12, 136)
+        Me.ListBox1.Location = New System.Drawing.Point(15, 104)
         Me.ListBox1.Name = "ListBox1"
-        Me.ListBox1.Size = New System.Drawing.Size(234, 186)
+        Me.ListBox1.Size = New System.Drawing.Size(234, 124)
         Me.ListBox1.TabIndex = 6
         '
         'Label1
         '
         Me.Label1.AutoSize = True
-        Me.Label1.Location = New System.Drawing.Point(12, 120)
+        Me.Label1.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.0!)
+        Me.Label1.Location = New System.Drawing.Point(12, 84)
         Me.Label1.Name = "Label1"
-        Me.Label1.Size = New System.Drawing.Size(62, 13)
+        Me.Label1.Size = New System.Drawing.Size(70, 15)
         Me.Label1.TabIndex = 8
         Me.Label1.Text = "My classes:"
+        '
+        'Button1
+        '
+        Me.Button1.Location = New System.Drawing.Point(263, 104)
+        Me.Button1.Name = "Button1"
+        Me.Button1.Size = New System.Drawing.Size(103, 33)
+        Me.Button1.TabIndex = 9
+        Me.Button1.Text = "New Attendance"
+        Me.Button1.UseVisualStyleBackColor = True
+        '
+        'Button2
+        '
+        Me.Button2.Location = New System.Drawing.Point(263, 195)
+        Me.Button2.Name = "Button2"
+        Me.Button2.Size = New System.Drawing.Size(103, 33)
+        Me.Button2.TabIndex = 10
+        Me.Button2.Text = "View Report"
+        Me.Button2.UseVisualStyleBackColor = True
+        '
+        'Button3
+        '
+        Me.Button3.Location = New System.Drawing.Point(263, 150)
+        Me.Button3.Name = "Button3"
+        Me.Button3.Size = New System.Drawing.Size(103, 33)
+        Me.Button3.TabIndex = 11
+        Me.Button3.Text = "Edit Attendances"
+        Me.Button3.UseVisualStyleBackColor = True
         '
         'Dashboard
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
-        Me.ClientSize = New System.Drawing.Size(390, 369)
+        Me.ClientSize = New System.Drawing.Size(381, 272)
+        Me.Controls.Add(Me.Button3)
+        Me.Controls.Add(Me.Button2)
+        Me.Controls.Add(Me.Button1)
         Me.Controls.Add(Me.Label1)
         Me.Controls.Add(Me.ListBox1)
         Me.Controls.Add(Me.lblGreeting)
@@ -115,4 +151,7 @@ Partial Class Dashboard
     Friend WithEvents lblGreeting As Label
     Friend WithEvents ListBox1 As ListBox
     Friend WithEvents Label1 As Label
+    Friend WithEvents Button1 As Button
+    Friend WithEvents Button2 As Button
+    Friend WithEvents Button3 As Button
 End Class
