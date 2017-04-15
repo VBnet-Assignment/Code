@@ -98,6 +98,12 @@
     <Import Include="System.Threading.Tasks" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="AddAttendance.Designer.vb">
+      <DependentUpon>AddAttendance.vb</DependentUpon>
+    </Compile>
+    <Compile Include="AddAttendance.vb">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Include="Login.vb">
       <SubType>Form</SubType>
     </Compile>
@@ -134,6 +140,9 @@
     </Compile>
   </ItemGroup>
   <ItemGroup>
+    <EmbeddedResource Include="AddAttendance.resx">
+      <DependentUpon>AddAttendance.vb</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="ChangePassword.resx">
       <DependentUpon>ChangePassword.vb</DependentUpon>
     </EmbeddedResource>

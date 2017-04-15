@@ -27,9 +27,9 @@ Partial Class Dashboard
         Me.ChangePasswordToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.LogOutToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.lblGreeting = New System.Windows.Forms.Label()
-        Me.ListBox1 = New System.Windows.Forms.ListBox()
+        Me.lstIntakecode = New System.Windows.Forms.ListBox()
         Me.Label1 = New System.Windows.Forms.Label()
-        Me.Button1 = New System.Windows.Forms.Button()
+        Me.btn_newatt = New System.Windows.Forms.Button()
         Me.Button2 = New System.Windows.Forms.Button()
         Me.Button3 = New System.Windows.Forms.Button()
         Me.MenuStrip1.SuspendLayout()
@@ -75,16 +75,15 @@ Partial Class Dashboard
         Me.lblGreeting.TabIndex = 5
         Me.lblGreeting.Text = "Welcome, Admin"
         '
-        'ListBox1
+        'lstIntakecode
         '
-        Me.ListBox1.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.ListBox1.FormattingEnabled = True
-        Me.ListBox1.ItemHeight = 15
-        Me.ListBox1.Items.AddRange(New Object() {"UCDF1504ICT", "UCDF1604ICT(SE)", "UCDF1605BIT"})
-        Me.ListBox1.Location = New System.Drawing.Point(15, 104)
-        Me.ListBox1.Name = "ListBox1"
-        Me.ListBox1.Size = New System.Drawing.Size(234, 124)
-        Me.ListBox1.TabIndex = 6
+        Me.lstIntakecode.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.lstIntakecode.FormattingEnabled = True
+        Me.lstIntakecode.ItemHeight = 15
+        Me.lstIntakecode.Location = New System.Drawing.Point(15, 104)
+        Me.lstIntakecode.Name = "lstIntakecode"
+        Me.lstIntakecode.Size = New System.Drawing.Size(234, 124)
+        Me.lstIntakecode.TabIndex = 6
         '
         'Label1
         '
@@ -96,14 +95,14 @@ Partial Class Dashboard
         Me.Label1.TabIndex = 8
         Me.Label1.Text = "My classes:"
         '
-        'Button1
+        'btn_newatt
         '
-        Me.Button1.Location = New System.Drawing.Point(263, 104)
-        Me.Button1.Name = "Button1"
-        Me.Button1.Size = New System.Drawing.Size(103, 33)
-        Me.Button1.TabIndex = 9
-        Me.Button1.Text = "New Attendance"
-        Me.Button1.UseVisualStyleBackColor = True
+        Me.btn_newatt.Location = New System.Drawing.Point(263, 104)
+        Me.btn_newatt.Name = "btn_newatt"
+        Me.btn_newatt.Size = New System.Drawing.Size(103, 33)
+        Me.btn_newatt.TabIndex = 9
+        Me.btn_newatt.Text = "New Attendance"
+        Me.btn_newatt.UseVisualStyleBackColor = True
         '
         'Button2
         '
@@ -130,9 +129,9 @@ Partial Class Dashboard
         Me.ClientSize = New System.Drawing.Size(381, 272)
         Me.Controls.Add(Me.Button3)
         Me.Controls.Add(Me.Button2)
-        Me.Controls.Add(Me.Button1)
+        Me.Controls.Add(Me.btn_newatt)
         Me.Controls.Add(Me.Label1)
-        Me.Controls.Add(Me.ListBox1)
+        Me.Controls.Add(Me.lstIntakecode)
         Me.Controls.Add(Me.lblGreeting)
         Me.Controls.Add(Me.MenuStrip1)
         Me.MainMenuStrip = Me.MenuStrip1
@@ -149,9 +148,9 @@ Partial Class Dashboard
     Friend WithEvents ChangePasswordToolStripMenuItem As ToolStripMenuItem
     Friend WithEvents LogOutToolStripMenuItem As ToolStripMenuItem
     Friend WithEvents lblGreeting As Label
-    Friend WithEvents ListBox1 As ListBox
+    Friend WithEvents lstIntakecode As ListBox
     Friend WithEvents Label1 As Label
-    Friend WithEvents Button1 As Button
+    Friend WithEvents btn_newatt As Button
     Friend WithEvents Button2 As Button
     Friend WithEvents Button3 As Button
 End Class
