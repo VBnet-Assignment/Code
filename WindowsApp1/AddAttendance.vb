@@ -9,7 +9,6 @@
     Dim selectedstudent As String
 
     Private Sub AddAttendance_Load(sender As Object, e As EventArgs) Handles MyBase.Load
-
         ' -------- Load database to display Selected Intake Details --------------------------
         con.ConnectionString = dbProvider & dbSource
         con.Open()
@@ -20,41 +19,12 @@
         lblIntake.Text = Dashboard.selectedintake
         inc = -1
         maxstudent = selectedintakeds.Tables("Student").Rows.Count
+
         Do While inc < maxstudent - 1
             inc = inc + 1
-            lstStudentName.Items.Add(selectedintakeds.Tables("Student").Rows(inc).Item(1))
+            lstAddAttendance.View = View.List
+            lstAddAttendance.Items.Add(selectedintakeds.Tables("Student").Rows(inc).Item(1))
+            lstAddAttendance.CheckBoxes = True
         Loop
-        StudentNav()
-    End Sub
-
-    Private Sub btnPrevious_Click(sender As Object, e As EventArgs) Handles btnPrevious.Click
-        If stdindex > 0 Then
-            stdindex = stdindex - 1
-            StudentNav()
-        Else
-            MsgBox("No more students")
-        End If
-    End Sub
-
-    Private Sub lstStudentName_SelectedIndexChanged(sender As Object, e As EventArgs) Handles lstStudentName.SelectedIndexChanged
-        stdindex = lstStudentName.SelectedIndex
-        StudentNav()
-    End Sub
-
-    Private Sub btnNext_Click(sender As Object, e As EventArgs) Handles btnNext.Click
-        If stdindex <> maxstudent - 1 Then
-            stdindex = stdindex + 1
-            StudentNav()
-        Else
-            MsgBox("No more students")
-        End If
-    End Sub
-
-    Private Sub StudentNav()
-        lblStudentName.Text = selectedintakeds.Tables("Student").Rows(stdindex).Item(1)
-        lblStudentContact.Text = selectedintakeds.Tables("Student").Rows(stdindex).Item(2)
-        lblTP.Text = (String.Format("TP{0:000000}", selectedintakeds.Tables("Student").Rows(stdindex).Item(0)))
-        lblStudentEmail.Text = selectedintakeds.Tables("Student").Rows(stdindex).Item(3)
-        lstStudentName.SelectedIndex = stdindex
     End Sub
 End Class

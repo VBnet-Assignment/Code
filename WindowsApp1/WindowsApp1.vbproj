@@ -104,6 +104,12 @@
     <Compile Include="AddAttendance.vb">
       <SubType>Form</SubType>
     </Compile>
+    <Compile Include="EditAttendance.Designer.vb">
+      <DependentUpon>EditAttendance.vb</DependentUpon>
+    </Compile>
+    <Compile Include="EditAttendance.vb">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Include="Login.vb">
       <SubType>Form</SubType>
     </Compile>
@@ -142,6 +148,9 @@
   <ItemGroup>
     <EmbeddedResource Include="AddAttendance.resx">
       <DependentUpon>AddAttendance.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="EditAttendance.resx">
+      <DependentUpon>EditAttendance.vb</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="ChangePassword.resx">
       <DependentUpon>ChangePassword.vb</DependentUpon>

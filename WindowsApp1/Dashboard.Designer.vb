@@ -31,7 +31,8 @@ Partial Class Dashboard
         Me.Label1 = New System.Windows.Forms.Label()
         Me.btn_newatt = New System.Windows.Forms.Button()
         Me.Button2 = New System.Windows.Forms.Button()
-        Me.Button3 = New System.Windows.Forms.Button()
+        Me.btnEdit = New System.Windows.Forms.Button()
+        Me.btnNext = New System.Windows.Forms.Button()
         Me.MenuStrip1.SuspendLayout()
         Me.SuspendLayout()
         '
@@ -91,9 +92,9 @@ Partial Class Dashboard
         Me.Label1.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.0!)
         Me.Label1.Location = New System.Drawing.Point(12, 84)
         Me.Label1.Name = "Label1"
-        Me.Label1.Size = New System.Drawing.Size(70, 15)
+        Me.Label1.Size = New System.Drawing.Size(68, 15)
         Me.Label1.TabIndex = 8
-        Me.Label1.Text = "My classes:"
+        Me.Label1.Text = "My intakes:"
         '
         'btn_newatt
         '
@@ -106,28 +107,38 @@ Partial Class Dashboard
         '
         'Button2
         '
-        Me.Button2.Location = New System.Drawing.Point(263, 195)
+        Me.Button2.Location = New System.Drawing.Point(287, 195)
         Me.Button2.Name = "Button2"
-        Me.Button2.Size = New System.Drawing.Size(103, 33)
+        Me.Button2.Size = New System.Drawing.Size(79, 33)
         Me.Button2.TabIndex = 10
         Me.Button2.Text = "View Report"
         Me.Button2.UseVisualStyleBackColor = True
         '
-        'Button3
+        'btnEdit
         '
-        Me.Button3.Location = New System.Drawing.Point(263, 150)
-        Me.Button3.Name = "Button3"
-        Me.Button3.Size = New System.Drawing.Size(103, 33)
-        Me.Button3.TabIndex = 11
-        Me.Button3.Text = "Edit Attendances"
-        Me.Button3.UseVisualStyleBackColor = True
+        Me.btnEdit.Location = New System.Drawing.Point(263, 150)
+        Me.btnEdit.Name = "btnEdit"
+        Me.btnEdit.Size = New System.Drawing.Size(103, 33)
+        Me.btnEdit.TabIndex = 11
+        Me.btnEdit.Text = "Edit Attendances"
+        Me.btnEdit.UseVisualStyleBackColor = True
+        '
+        'btnNext
+        '
+        Me.btnNext.Location = New System.Drawing.Point(263, 195)
+        Me.btnNext.Name = "btnNext"
+        Me.btnNext.Size = New System.Drawing.Size(26, 33)
+        Me.btnNext.TabIndex = 12
+        Me.btnNext.Text = ">"
+        Me.btnNext.UseVisualStyleBackColor = True
         '
         'Dashboard
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.ClientSize = New System.Drawing.Size(381, 272)
-        Me.Controls.Add(Me.Button3)
+        Me.Controls.Add(Me.btnNext)
+        Me.Controls.Add(Me.btnEdit)
         Me.Controls.Add(Me.Button2)
         Me.Controls.Add(Me.btn_newatt)
         Me.Controls.Add(Me.Label1)
@@ -152,5 +163,6 @@ Partial Class Dashboard
     Friend WithEvents Label1 As Label
     Friend WithEvents btn_newatt As Button
     Friend WithEvents Button2 As Button
-    Friend WithEvents Button3 As Button
+    Friend WithEvents btnEdit As Button
+    Friend WithEvents btnNext As Button
 End Class
