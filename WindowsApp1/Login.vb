@@ -4,7 +4,9 @@
     Dim dbSource As String = "Data Source = Database.mdb"
     Dim sql As String = "SELECT * From Lecturer"
     Public Property ds As New DataSet
-    Dim da As OleDb.OleDbDataAdapter = New OleDb.OleDbDataAdapter(sql, con)
+    Public Property da As OleDb.OleDbDataAdapter = New OleDb.OleDbDataAdapter(sql, con)
+    Dim cb As New OleDb.OleDbCommandBuilder(da)
+
 
 
     Private Sub Form1_Load(sender As Object, e As EventArgs) Handles MyBase.Load

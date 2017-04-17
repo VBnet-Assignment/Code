@@ -10,8 +10,11 @@
             If TextBox1.Text.Equals(Dashboard.lecturePassword) Then
                 If TextBox2.Text.Equals(TextBox3.Text) Then
                     Login.ds.Tables("Lecturer").Rows(Dashboard.userID).Item(2) = TextBox2.Text
+                    Login.da.Update(Login.ds, "Lecturer")
                     MsgBox("Password changed. Please use your new password to login.")
                     Dashboard.Close()
+                    Login.txtPassword.Clear()
+                    Login.chkRememberPassword.Checked = False
                     Login.Show()
                     Me.Close()
                 Else
