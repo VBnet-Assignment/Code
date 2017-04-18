@@ -27,16 +27,7 @@
         intakeda.Fill(intakeds, "Student")
         con.Close()
 
-        btnEdit.Enabled = False
-        btn_newatt.Enabled = False
-        Button2.Enabled = False
-
-        inc = -1
-        maxintake = intakeds.Tables("Student").Rows.Count
-        Do While inc < maxintake - 1
-            inc = inc + 1
-            lstIntakecode.Items.Add(intakeds.Tables("Student").Rows(inc).Item(0))
-        Loop
+        SelectIntake()
     End Sub
 
     Private Sub LogOutToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles LogOutToolStripMenuItem.Click
@@ -48,6 +39,8 @@
     Private Sub btn_newatt_Click(sender As Object, e As EventArgs) Handles btn_newatt.Click
         If lstIntakecode.SelectedIndex >= 0 Then
             selectedsubject = lstIntakecode.SelectedItem
+
+            MsgBox(selectedsubject)
             Me.Hide()
             AddAttendance.Show()
         Else
@@ -69,13 +62,26 @@
         If lstIntakecode.SelectedIndex >= 0 Then
             selectedintake = lstIntakecode.SelectedItem
             lstIntakecode.Items.Clear()
-
             SelectSubject()
+            btnNext.Hide()
+            btnBack.Show()
         Else
             MessageBox.Show("Select an intake", "Intake not found", MessageBoxButtons.OK, MessageBoxIcon.Asterisk)
         End If
     End Sub
 
+    Private Sub SelectIntake()
+        lstIntakecode.Items.Clear()
+        btnEdit.Enabled = False
+        btn_newatt.Enabled = False
+        Button2.Enabled = False
+        inc = -1
+        maxintake = intakeds.Tables("Student").Rows.Count
+        Do While inc < maxintake - 1
+            inc = inc + 1
+            lstIntakecode.Items.Add(intakeds.Tables("Student").Rows(inc).Item(0))
+        Loop
+    End Sub
     Private Sub SelectSubject()
         Dim subjectsql As String = "SELECT SubjectCode FROM IntakeSubjects WHERE IntakeCode='" & selectedintake & "' ORDER BY SubjectCode"
         Dim subjectds As New DataSet
@@ -95,8 +101,17 @@
         btn_newatt.Enabled = True
         btnEdit.Enabled = True
         Button2.Enabled = True
-        btnNext.Enabled = False
         Label1.Text = "My classes :"
+    End Sub
+
+    Private Sub Button2_Click(sender As Object, e As EventArgs) Handles Button2.Click
+        ViewReport.Show()
+    End Sub
+
+    Private Sub btnBack_Click(sender As Object, e As EventArgs) Handles btnBack.Click
+        SelectIntake()
+        btnBack.Hide()
+        btnNext.Show()
     End Sub
 
     Private Sub ChangePasswordToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles ChangePasswordToolStripMenuItem.Click
