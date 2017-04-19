@@ -39,8 +39,6 @@
     Private Sub btn_newatt_Click(sender As Object, e As EventArgs) Handles btn_newatt.Click
         If lstIntakecode.SelectedIndex >= 0 Then
             selectedsubject = lstIntakecode.SelectedItem
-
-            MsgBox(selectedsubject)
             Me.Hide()
             AddAttendance.Show()
         Else
