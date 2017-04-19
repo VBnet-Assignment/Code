@@ -40,6 +40,7 @@
         If lstIntakecode.SelectedIndex >= 0 Then
             selectedsubject = lstIntakecode.SelectedItem
             Me.Hide()
+            MsgBox(selectedsubject)
             AddAttendance.Show()
         Else
             MessageBox.Show("Select a subject", "Subject not found", MessageBoxButtons.OK, MessageBoxIcon.Asterisk)

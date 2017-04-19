@@ -6,11 +6,6 @@
     Public Property selectedintakeds As New DataSet
     Dim selectedintakeda As OleDb.OleDbDataAdapter = New OleDb.OleDbDataAdapter(selectedintakesql, con)
 
-    ' ----------- Dim attendance database -------------------------------
-    Dim attendancesql As String = "SELECT * From Attendance"
-    Public Property attendanceds As New DataSet
-    Dim attendanceda As OleDb.OleDbDataAdapter = New OleDb.OleDbDataAdapter(attendancesql, con)
-
     Dim inc, maxstudent, stdindex As Integer
     Dim selectedstudent As String
 
@@ -20,12 +15,6 @@
         con.ConnectionString = dbProvider & dbSource
         con.Open()
         selectedintakeda.Fill(selectedintakeds, "Student")
-        con.Close()
-
-        ' -------- Load database to display Attendance Details --------------------------
-        con.ConnectionString = dbProvider & dbSource
-        con.Open()
-        attendanceda.Fill(attendanceds, "Attendance")
         con.Close()
 
         Me.Text = "Attendence – " & Dashboard.lectureName & " (" & Dashboard.lectureID & ")"
@@ -66,7 +55,7 @@
 
     Private Sub StudentNav()
         Dim studentdetailds As New DataSet
-        Dim studentdetailsql As String = "SELECT SUM(TotalClasses), SUM(TotalLates) From Attendance WHERE TPNumber=" & selectedintakeds.Tables("Student").Rows(stdindex).Item(0) & " GROUP BY TPNumber"
+        Dim studentdetailsql As String = "SELECT * From Attendance WHERE SubjectCode='" & Dashboard.selectedsubject & "' AND TPNumber=" & selectedintakeds.Tables("Student").Rows(stdindex).Item(0)
         Dim studentdetailda As OleDb.OleDbDataAdapter = New OleDb.OleDbDataAdapter(studentdetailsql, con)
 
         con.ConnectionString = dbProvider & dbSource
@@ -74,15 +63,14 @@
         studentdetailda.Fill(studentdetailds, "Attendance")
         con.Close()
 
-        txtAtt.Text = studentdetailds.Tables("Attendance").Rows(0).Item(0)
-        txtLateAtt.Text = studentdetailds.Tables("Attendance").Rows(0).Item(1)
+        txtAtt.Text = studentdetailds.Tables("Attendance").Rows(0).Item(2)
+        txtLateAtt.Text = studentdetailds.Tables("Attendance").Rows(0).Item(4)
 
         lblStudentName.Text = selectedintakeds.Tables("Student").Rows(stdindex).Item(1)
         lblStudentContact.Text = selectedintakeds.Tables("Student").Rows(stdindex).Item(2)
         lblTP.Text = (String.Format("TP{0:000000}", selectedintakeds.Tables("Student").Rows(stdindex).Item(0)))
         lblStudentEmail.Text = selectedintakeds.Tables("Student").Rows(stdindex).Item(3)
         lstStudentName.SelectedIndex = stdindex
-        txtLateAtt.Clear()
         btnUpdate.Text = "Update"
         btnUpdate.Enabled = False
 
@@ -91,28 +79,34 @@
 
     '================ START OF ADDING ATTENDANCE =====================
     Private Sub btnUpdate_Click(sender As Object, e As EventArgs) Handles btnUpdate.Click
-        Dim update As New OleDb.OleDbCommandBuilder(attendanceda)
         Dim datainc As Integer
-        Dim newattendance As DataRow
-
         datainc = 0
         If datainc <> -1 Then
-            newattendance = attendanceds.Tables("Attendance").NewRow()
-
-            newattendance.Item("SubjectCode") = "1"
-            newattendance.Item("TotalClasses") = txtAtt.Text
-            newattendance.Item("TotalLates") = txtLateAtt.Text
-            newattendance.Item("TPNumber") = selectedintakeds.Tables("Student").Rows(stdindex).Item(0)
-
-            attendanceds.Tables("Attendance").Rows.Add(newattendance)
-            attendanceda.Update(attendanceds, "Attendance")
+            ModifyAttendance()
             btnUpdate.Text = "Updated"
             btnUpdate.Enabled = False
         End If
     End Sub
 
+    Private Sub ModifyAttendance()
+        '============ DIM NEW ATTENDANCE
+        Dim attendancesql As String = "SELECT * From Attendance WHERE SubjectCode='" & Dashboard.selectedsubject & "' AND TPNumber=" & selectedintakeds.Tables("Student").Rows(stdindex).Item(0)
+        Dim attendanceds As New DataSet
+        Dim attendanceda As OleDb.OleDbDataAdapter = New OleDb.OleDbDataAdapter(attendancesql, con)
+
+        Dim update As New OleDb.OleDbCommandBuilder(attendanceda)
+        ' -------- Load database to display Student Attendance Details --------------------------
+        con.ConnectionString = dbProvider & dbSource
+        con.Open()
+        attendanceda.Fill(attendanceds, "Attendance")
+        con.Close()
+
+        attendanceds.Tables("Attendance").Rows(0).Item(2) = txtAtt.Text
+        attendanceds.Tables("Attendance").Rows(0).Item(4) = txtLateAtt.Text
+        attendanceda.Update(attendanceds, "Attendance")
+    End Sub
+
     Private Sub txtAtt_TextChanged(sender As Object, e As EventArgs) Handles txtAtt.TextChanged
         btnUpdate.Enabled = True
-
     End Sub
 End Class
