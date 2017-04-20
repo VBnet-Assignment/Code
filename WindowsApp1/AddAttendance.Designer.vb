@@ -38,6 +38,10 @@ Partial Class AddAttendance
         Me.btnAbsent = New System.Windows.Forms.Button()
         Me.lblAbsent = New System.Windows.Forms.Label()
         Me.Label4 = New System.Windows.Forms.Label()
+        Me.lblPercent = New System.Windows.Forms.Label()
+        Me.lblTotalClass = New System.Windows.Forms.Label()
+        Me.Label5 = New System.Windows.Forms.Label()
+        Me.Label1 = New System.Windows.Forms.Label()
         Me.SuspendLayout()
         '
         'lblIntake
@@ -85,7 +89,7 @@ Partial Class AddAttendance
         'lblPresent
         '
         Me.lblPresent.AutoSize = True
-        Me.lblPresent.Location = New System.Drawing.Point(126, 72)
+        Me.lblPresent.Location = New System.Drawing.Point(126, 100)
         Me.lblPresent.Name = "lblPresent"
         Me.lblPresent.Size = New System.Drawing.Size(0, 13)
         Me.lblPresent.TabIndex = 7
@@ -93,7 +97,7 @@ Partial Class AddAttendance
         'PresentText
         '
         Me.PresentText.AutoSize = True
-        Me.PresentText.Location = New System.Drawing.Point(27, 72)
+        Me.PresentText.Location = New System.Drawing.Point(27, 100)
         Me.PresentText.Name = "PresentText"
         Me.PresentText.Size = New System.Drawing.Size(79, 13)
         Me.PresentText.TabIndex = 6
@@ -137,7 +141,7 @@ Partial Class AddAttendance
         'lblLate
         '
         Me.lblLate.AutoSize = True
-        Me.lblLate.Location = New System.Drawing.Point(126, 98)
+        Me.lblLate.Location = New System.Drawing.Point(126, 113)
         Me.lblLate.Name = "lblLate"
         Me.lblLate.Size = New System.Drawing.Size(0, 13)
         Me.lblLate.TabIndex = 28
@@ -145,7 +149,7 @@ Partial Class AddAttendance
         'Label2
         '
         Me.Label2.AutoSize = True
-        Me.Label2.Location = New System.Drawing.Point(42, 98)
+        Me.Label2.Location = New System.Drawing.Point(42, 113)
         Me.Label2.Name = "Label2"
         Me.Label2.Size = New System.Drawing.Size(64, 13)
         Me.Label2.TabIndex = 27
@@ -177,11 +181,49 @@ Partial Class AddAttendance
         Me.Label4.TabIndex = 30
         Me.Label4.Text = "Total Absent  :"
         '
+        'lblPercent
+        '
+        Me.lblPercent.AutoSize = True
+        Me.lblPercent.Location = New System.Drawing.Point(363, 73)
+        Me.lblPercent.Name = "lblPercent"
+        Me.lblPercent.Size = New System.Drawing.Size(0, 13)
+        Me.lblPercent.TabIndex = 32
+        '
+        'lblTotalClass
+        '
+        Me.lblTotalClass.AutoSize = True
+        Me.lblTotalClass.Location = New System.Drawing.Point(126, 73)
+        Me.lblTotalClass.Name = "lblTotalClass"
+        Me.lblTotalClass.Size = New System.Drawing.Size(0, 13)
+        Me.lblTotalClass.TabIndex = 34
+        '
+        'Label5
+        '
+        Me.Label5.AutoSize = True
+        Me.Label5.Location = New System.Drawing.Point(38, 73)
+        Me.Label5.Name = "Label5"
+        Me.Label5.Size = New System.Drawing.Size(68, 13)
+        Me.Label5.TabIndex = 33
+        Me.Label5.Text = "Total Class  :"
+        '
+        'Label1
+        '
+        Me.Label1.AutoSize = True
+        Me.Label1.Location = New System.Drawing.Point(222, 73)
+        Me.Label1.Name = "Label1"
+        Me.Label1.Size = New System.Drawing.Size(135, 13)
+        Me.Label1.TabIndex = 35
+        Me.Label1.Text = "Attenndance Percentage  :"
+        '
         'AddAttendance
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.ClientSize = New System.Drawing.Size(694, 457)
+        Me.Controls.Add(Me.Label1)
+        Me.Controls.Add(Me.lblTotalClass)
+        Me.Controls.Add(Me.Label5)
+        Me.Controls.Add(Me.lblPercent)
         Me.Controls.Add(Me.lblAbsent)
         Me.Controls.Add(Me.Label4)
         Me.Controls.Add(Me.btnAbsent)
@@ -221,4 +263,8 @@ Partial Class AddAttendance
     Friend WithEvents btnAbsent As Button
     Friend WithEvents lblAbsent As Label
     Friend WithEvents Label4 As Label
+    Friend WithEvents lblPercent As Label
+    Friend WithEvents lblTotalClass As Label
+    Friend WithEvents Label5 As Label
+    Friend WithEvents Label1 As Label
 End Class

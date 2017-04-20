@@ -64,6 +64,7 @@
         con.Close()
 
         txtAtt.Text = studentdetailds.Tables("Attendance").Rows(0).Item(2)
+        txtAbsent.Text = studentdetailds.Tables("Attendance").Rows(0).Item(3)
         txtLateAtt.Text = studentdetailds.Tables("Attendance").Rows(0).Item(4)
 
         lblStudentName.Text = selectedintakeds.Tables("Student").Rows(stdindex).Item(1)
@@ -102,6 +103,7 @@
         con.Close()
 
         attendanceds.Tables("Attendance").Rows(0).Item(2) = txtAtt.Text
+        attendanceds.Tables("Attendance").Rows(0).Item(2) = txtAbsent.Text
         attendanceds.Tables("Attendance").Rows(0).Item(4) = txtLateAtt.Text
         attendanceda.Update(attendanceds, "Attendance")
     End Sub

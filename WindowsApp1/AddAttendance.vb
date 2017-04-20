@@ -7,7 +7,8 @@
     Dim selectedintakeda As OleDb.OleDbDataAdapter = New OleDb.OleDbDataAdapter(selectedintakesql, con)
     Dim inc, maxstudent, stdindex As Integer
 
-    Dim presentstatus, latestatus, absentstatus, totalpresent, present, totalabsent, absent, totallate, late As Integer
+    Dim presentstatus, latestatus, absentstatus, totalpresent, present, totalabsent, absent, totallate, late, totalclass As Integer
+    Dim classpercent As Double
 
     Dim selectedstudent As String
 
@@ -95,9 +96,18 @@
         attendanceda.Fill(attendanceds, "Attendance")
         con.Close()
 
+        lblTotalClass.Text = attendanceds.Tables("Attendance").Rows(0).Item(1)
         lblPresent.Text = attendanceds.Tables("Attendance").Rows(0).Item(2)
         lblAbsent.Text = attendanceds.Tables("Attendance").Rows(0).Item(3)
         lblLate.Text = attendanceds.Tables("Attendance").Rows(0).Item(4)
+
+        totalclass = lblTotalClass.Text
+        present = lblPresent.Text
+        absent = lblAbsent.Text
+        late = lblLate.Text
+
+        classpercent = ((present + (late * 0.5)) / totalclass) * 100
+        lblPercent.Text = String.Format("{0:000.00}%", classpercent)
 
         lblTP.Text = (String.Format("TP{0:000000}", selectedintakeds.Tables("Student").Rows(stdindex).Item(0)))
         lstStudentName.SelectedIndex = stdindex
@@ -124,6 +134,9 @@
         totalabsent = absentstatus + absent
         totallate = latestatus + late
 
+        totalclass = totalpresent + totalabsent + totallate
+
+        attendanceds.Tables("Attendance").Rows(0).Item(1) = totalclass
         attendanceds.Tables("Attendance").Rows(0).Item(2) = totalpresent
         attendanceds.Tables("Attendance").Rows(0).Item(3) = totalabsent
         attendanceds.Tables("Attendance").Rows(0).Item(4) = totallate

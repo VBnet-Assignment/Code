@@ -44,6 +44,8 @@ Partial Class EditAttendance
         Me.txtLateAtt = New System.Windows.Forms.TextBox()
         Me.lblSubject = New System.Windows.Forms.Label()
         Me.Label3 = New System.Windows.Forms.Label()
+        Me.Label2 = New System.Windows.Forms.Label()
+        Me.txtAbsent = New System.Windows.Forms.TextBox()
         Me.SuspendLayout()
         '
         'lstStudentName
@@ -222,11 +224,29 @@ Partial Class EditAttendance
         Me.Label3.TabIndex = 20
         Me.Label3.Text = "Subject :"
         '
+        'Label2
+        '
+        Me.Label2.AutoSize = True
+        Me.Label2.Location = New System.Drawing.Point(14, 218)
+        Me.Label2.Name = "Label2"
+        Me.Label2.Size = New System.Drawing.Size(94, 13)
+        Me.Label2.TabIndex = 23
+        Me.Label2.Text = "Classes Absent    :"
+        '
+        'txtAbsent
+        '
+        Me.txtAbsent.Location = New System.Drawing.Point(115, 215)
+        Me.txtAbsent.Name = "txtAbsent"
+        Me.txtAbsent.Size = New System.Drawing.Size(29, 20)
+        Me.txtAbsent.TabIndex = 22
+        '
         'EditAttendance
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.ClientSize = New System.Drawing.Size(790, 501)
+        Me.Controls.Add(Me.Label2)
+        Me.Controls.Add(Me.txtAbsent)
         Me.Controls.Add(Me.lblSubject)
         Me.Controls.Add(Me.Label3)
         Me.Controls.Add(Me.Label1)
@@ -276,4 +296,6 @@ Partial Class EditAttendance
     Friend WithEvents txtLateAtt As TextBox
     Friend WithEvents lblSubject As Label
     Friend WithEvents Label3 As Label
+    Friend WithEvents Label2 As Label
+    Friend WithEvents txtAbsent As TextBox
 End Class
