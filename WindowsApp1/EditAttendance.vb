@@ -6,6 +6,9 @@
     Public Property selectedintakeds As New DataSet
     Dim selectedintakeda As OleDb.OleDbDataAdapter = New OleDb.OleDbDataAdapter(selectedintakesql, con)
 
+    Dim presentstatus, latestatus, absentstatus, totalpresent, present, totalabsent, absent, totallate, late, totalclass As Integer
+    Dim classpercent As Double
+
     Dim inc, maxstudent, stdindex As Integer
     Dim selectedstudent As String
 
@@ -55,8 +58,9 @@
 
     Private Sub StudentNav()
         Dim studentdetailds As New DataSet
-        Dim studentdetailsql As String = "SELECT * From Attendance WHERE SubjectCode='" & Dashboard.selectedsubject & "' AND TPNumber=" & selectedintakeds.Tables("Student").Rows(stdindex).Item(0)
+        Dim studentdetailsql As String = "SELECT * From Attendance WHERE SubjectCode=" & Dashboard.selectedsubject & " AND TPNumber=" & selectedintakeds.Tables("Student").Rows(stdindex).Item(0)
         Dim studentdetailda As OleDb.OleDbDataAdapter = New OleDb.OleDbDataAdapter(studentdetailsql, con)
+
 
         con.ConnectionString = dbProvider & dbSource
         con.Open()
@@ -71,6 +75,31 @@
         lblStudentContact.Text = selectedintakeds.Tables("Student").Rows(stdindex).Item(2)
         lblTP.Text = (String.Format("TP{0:000000}", selectedintakeds.Tables("Student").Rows(stdindex).Item(0)))
         lblStudentEmail.Text = selectedintakeds.Tables("Student").Rows(stdindex).Item(3)
+
+        lblTotalClass.Text = studentdetailds.Tables("Attendance").Rows(0).Item(1)
+        txtAtt.Text = studentdetailds.Tables("Attendance").Rows(0).Item(2)
+        txtAbsent.Text = studentdetailds.Tables("Attendance").Rows(0).Item(3)
+        txtLateAtt.Text = studentdetailds.Tables("Attendance").Rows(0).Item(4)
+
+        present = txtAtt.Text
+        absent = txtAbsent.Text
+        late = txtLateAtt.Text
+        totalclass = present + absent + late
+        totalclass = lblTotalClass.Text
+
+        classpercent = ((present + (late * 0.5)) / totalclass) * 100
+
+        If Double.IsInfinity(classpercent) Then
+            classpercent = 0
+        End If
+        If classpercent < 10 Then
+            lblPercent.Text = String.Format("{0:0.00}%", classpercent)
+        ElseIf classpercent < 100 Then
+            lblPercent.Text = String.Format("{0:00.00}%", classpercent)
+        Else
+            lblPercent.Text = String.Format("{0:000.00}%", classpercent)
+        End If
+
         lstStudentName.SelectedIndex = stdindex
         btnUpdate.Text = "Update"
         btnUpdate.Enabled = False
@@ -90,22 +119,21 @@
     End Sub
 
     Private Sub ModifyAttendance()
-        '============ DIM NEW ATTENDANCE
-        Dim attendancesql As String = "SELECT * From Attendance WHERE SubjectCode='" & Dashboard.selectedsubject & "' AND TPNumber=" & selectedintakeds.Tables("Student").Rows(stdindex).Item(0)
-        Dim attendanceds As New DataSet
-        Dim attendanceda As OleDb.OleDbDataAdapter = New OleDb.OleDbDataAdapter(attendancesql, con)
+        Dim studentdetailds As New DataSet
+        Dim studentdetailsql As String = "SELECT * From Attendance WHERE SubjectCode=" & Dashboard.selectedsubject & " AND TPNumber=" & selectedintakeds.Tables("Student").Rows(stdindex).Item(0)
+        Dim studentdetailda As OleDb.OleDbDataAdapter = New OleDb.OleDbDataAdapter(studentdetailsql, con)
+        Dim update As New OleDb.OleDbCommandBuilder(studentdetailda)
 
-        Dim update As New OleDb.OleDbCommandBuilder(attendanceda)
-        ' -------- Load database to display Student Attendance Details --------------------------
         con.ConnectionString = dbProvider & dbSource
         con.Open()
-        attendanceda.Fill(attendanceds, "Attendance")
+        studentdetailda.Fill(studentdetailds, "Attendance")
         con.Close()
 
-        attendanceds.Tables("Attendance").Rows(0).Item(2) = txtAtt.Text
-        attendanceds.Tables("Attendance").Rows(0).Item(2) = txtAbsent.Text
-        attendanceds.Tables("Attendance").Rows(0).Item(4) = txtLateAtt.Text
-        attendanceda.Update(attendanceds, "Attendance")
+        studentdetailds.Tables("Attendance").Rows(0).Item(2) = txtAtt.Text
+        studentdetailds.Tables("Attendance").Rows(0).Item(3) = txtAbsent.Text
+        studentdetailds.Tables("Attendance").Rows(0).Item(4) = txtLateAtt.Text
+
+        studentdetailda.Update(studentdetailds, "Attendance")
     End Sub
 
     Private Sub txtAtt_TextChanged(sender As Object, e As EventArgs) Handles txtAtt.TextChanged

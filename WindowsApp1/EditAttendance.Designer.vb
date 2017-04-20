@@ -46,40 +46,49 @@ Partial Class EditAttendance
         Me.Label3 = New System.Windows.Forms.Label()
         Me.Label2 = New System.Windows.Forms.Label()
         Me.txtAbsent = New System.Windows.Forms.TextBox()
+        Me.lblPercent = New System.Windows.Forms.Label()
+        Me.Label5 = New System.Windows.Forms.Label()
+        Me.lblTotalClass = New System.Windows.Forms.Label()
+        Me.Label6 = New System.Windows.Forms.Label()
         Me.SuspendLayout()
         '
         'lstStudentName
         '
         Me.lstStudentName.FormattingEnabled = True
-        Me.lstStudentName.Location = New System.Drawing.Point(574, 56)
+        Me.lstStudentName.ItemHeight = 29
+        Me.lstStudentName.Location = New System.Drawing.Point(1339, 125)
+        Me.lstStudentName.Margin = New System.Windows.Forms.Padding(7, 7, 7, 7)
         Me.lstStudentName.Name = "lstStudentName"
-        Me.lstStudentName.Size = New System.Drawing.Size(204, 433)
+        Me.lstStudentName.Size = New System.Drawing.Size(471, 961)
         Me.lstStudentName.TabIndex = 0
         '
         'intakeText
         '
         Me.intakeText.AutoSize = True
-        Me.intakeText.Location = New System.Drawing.Point(571, 9)
+        Me.intakeText.Location = New System.Drawing.Point(1332, 20)
+        Me.intakeText.Margin = New System.Windows.Forms.Padding(7, 0, 7, 0)
         Me.intakeText.Name = "intakeText"
-        Me.intakeText.Size = New System.Drawing.Size(43, 13)
+        Me.intakeText.Size = New System.Drawing.Size(89, 29)
         Me.intakeText.TabIndex = 1
         Me.intakeText.Text = "Intake :"
         '
         'lblIntake
         '
         Me.lblIntake.AutoSize = True
-        Me.lblIntake.Location = New System.Drawing.Point(614, 9)
+        Me.lblIntake.Location = New System.Drawing.Point(1433, 20)
+        Me.lblIntake.Margin = New System.Windows.Forms.Padding(7, 0, 7, 0)
         Me.lblIntake.Name = "lblIntake"
-        Me.lblIntake.Size = New System.Drawing.Size(0, 13)
+        Me.lblIntake.Size = New System.Drawing.Size(0, 29)
         Me.lblIntake.TabIndex = 2
         '
         'studentnametxt
         '
         Me.studentnametxt.AutoSize = True
         Me.studentnametxt.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.studentnametxt.Location = New System.Drawing.Point(12, 23)
+        Me.studentnametxt.Location = New System.Drawing.Point(28, 51)
+        Me.studentnametxt.Margin = New System.Windows.Forms.Padding(7, 0, 7, 0)
         Me.studentnametxt.Name = "studentnametxt"
-        Me.studentnametxt.Size = New System.Drawing.Size(120, 20)
+        Me.studentnametxt.Size = New System.Drawing.Size(267, 40)
         Me.studentnametxt.TabIndex = 3
         Me.studentnametxt.Text = "Student Name :"
         '
@@ -87,16 +96,18 @@ Partial Class EditAttendance
         '
         Me.lblStudentName.AutoSize = True
         Me.lblStudentName.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.lblStudentName.Location = New System.Drawing.Point(138, 23)
+        Me.lblStudentName.Location = New System.Drawing.Point(322, 51)
+        Me.lblStudentName.Margin = New System.Windows.Forms.Padding(7, 0, 7, 0)
         Me.lblStudentName.Name = "lblStudentName"
-        Me.lblStudentName.Size = New System.Drawing.Size(0, 20)
+        Me.lblStudentName.Size = New System.Drawing.Size(0, 40)
         Me.lblStudentName.TabIndex = 4
         '
         'btnNext
         '
-        Me.btnNext.Location = New System.Drawing.Point(406, 365)
+        Me.btnNext.Location = New System.Drawing.Point(947, 814)
+        Me.btnNext.Margin = New System.Windows.Forms.Padding(7, 7, 7, 7)
         Me.btnNext.Name = "btnNext"
-        Me.btnNext.Size = New System.Drawing.Size(75, 23)
+        Me.btnNext.Size = New System.Drawing.Size(175, 51)
         Me.btnNext.TabIndex = 5
         Me.btnNext.Text = "Next"
         Me.btnNext.UseVisualStyleBackColor = True
@@ -104,25 +115,28 @@ Partial Class EditAttendance
         'TPtext
         '
         Me.TPtext.AutoSize = True
-        Me.TPtext.Location = New System.Drawing.Point(12, 56)
+        Me.TPtext.Location = New System.Drawing.Point(28, 125)
+        Me.TPtext.Margin = New System.Windows.Forms.Padding(7, 0, 7, 0)
         Me.TPtext.Name = "TPtext"
-        Me.TPtext.Size = New System.Drawing.Size(90, 13)
+        Me.TPtext.Size = New System.Drawing.Size(200, 29)
         Me.TPtext.TabIndex = 6
         Me.TPtext.Text = "Student Number :"
         '
         'lblTP
         '
         Me.lblTP.AutoSize = True
-        Me.lblTP.Location = New System.Drawing.Point(108, 56)
+        Me.lblTP.Location = New System.Drawing.Point(252, 125)
+        Me.lblTP.Margin = New System.Windows.Forms.Padding(7, 0, 7, 0)
         Me.lblTP.Name = "lblTP"
-        Me.lblTP.Size = New System.Drawing.Size(0, 13)
+        Me.lblTP.Size = New System.Drawing.Size(0, 29)
         Me.lblTP.TabIndex = 7
         '
         'btnPrevious
         '
-        Me.btnPrevious.Location = New System.Drawing.Point(57, 365)
+        Me.btnPrevious.Location = New System.Drawing.Point(133, 814)
+        Me.btnPrevious.Margin = New System.Windows.Forms.Padding(7, 7, 7, 7)
         Me.btnPrevious.Name = "btnPrevious"
-        Me.btnPrevious.Size = New System.Drawing.Size(75, 23)
+        Me.btnPrevious.Size = New System.Drawing.Size(175, 51)
         Me.btnPrevious.TabIndex = 8
         Me.btnPrevious.Text = "Previous"
         Me.btnPrevious.UseVisualStyleBackColor = True
@@ -130,54 +144,61 @@ Partial Class EditAttendance
         'lblStudentEmail
         '
         Me.lblStudentEmail.AutoSize = True
-        Me.lblStudentEmail.Location = New System.Drawing.Point(108, 83)
+        Me.lblStudentEmail.Location = New System.Drawing.Point(252, 185)
+        Me.lblStudentEmail.Margin = New System.Windows.Forms.Padding(7, 0, 7, 0)
         Me.lblStudentEmail.Name = "lblStudentEmail"
-        Me.lblStudentEmail.Size = New System.Drawing.Size(0, 13)
+        Me.lblStudentEmail.Size = New System.Drawing.Size(0, 29)
         Me.lblStudentEmail.TabIndex = 10
         '
         'stdemailtext
         '
         Me.stdemailtext.AutoSize = True
-        Me.stdemailtext.Location = New System.Drawing.Point(12, 83)
+        Me.stdemailtext.Location = New System.Drawing.Point(28, 185)
+        Me.stdemailtext.Margin = New System.Windows.Forms.Padding(7, 0, 7, 0)
         Me.stdemailtext.Name = "stdemailtext"
-        Me.stdemailtext.Size = New System.Drawing.Size(90, 13)
+        Me.stdemailtext.Size = New System.Drawing.Size(198, 29)
         Me.stdemailtext.TabIndex = 9
         Me.stdemailtext.Text = "Student Email     :"
         '
         'lblStudentContact
         '
         Me.lblStudentContact.AutoSize = True
-        Me.lblStudentContact.Location = New System.Drawing.Point(419, 56)
+        Me.lblStudentContact.Location = New System.Drawing.Point(978, 125)
+        Me.lblStudentContact.Margin = New System.Windows.Forms.Padding(7, 0, 7, 0)
         Me.lblStudentContact.Name = "lblStudentContact"
-        Me.lblStudentContact.Size = New System.Drawing.Size(0, 13)
+        Me.lblStudentContact.Size = New System.Drawing.Size(0, 29)
         Me.lblStudentContact.TabIndex = 12
         '
         'stdcontacttext
         '
         Me.stdcontacttext.AutoSize = True
-        Me.stdcontacttext.Location = New System.Drawing.Point(323, 56)
+        Me.stdcontacttext.Location = New System.Drawing.Point(754, 125)
+        Me.stdcontacttext.Margin = New System.Windows.Forms.Padding(7, 0, 7, 0)
         Me.stdcontacttext.Name = "stdcontacttext"
-        Me.stdcontacttext.Size = New System.Drawing.Size(90, 13)
+        Me.stdcontacttext.Size = New System.Drawing.Size(194, 29)
         Me.stdcontacttext.TabIndex = 11
         Me.stdcontacttext.Text = "Student Contact :"
         '
         'ContextMenuStrip1
         '
+        Me.ContextMenuStrip1.ImageScalingSize = New System.Drawing.Size(36, 36)
         Me.ContextMenuStrip1.Name = "ContextMenuStrip1"
         Me.ContextMenuStrip1.Size = New System.Drawing.Size(61, 4)
         '
         'txtAtt
         '
-        Me.txtAtt.Location = New System.Drawing.Point(113, 132)
+        Me.txtAtt.Location = New System.Drawing.Point(264, 294)
+        Me.txtAtt.Margin = New System.Windows.Forms.Padding(7, 7, 7, 7)
         Me.txtAtt.Name = "txtAtt"
-        Me.txtAtt.Size = New System.Drawing.Size(29, 20)
+        Me.txtAtt.Size = New System.Drawing.Size(62, 35)
         Me.txtAtt.TabIndex = 15
         '
         'btnUpdate
         '
-        Me.btnUpdate.Location = New System.Drawing.Point(291, 365)
+        Me.btnUpdate.Location = New System.Drawing.Point(679, 814)
+        Me.btnUpdate.Margin = New System.Windows.Forms.Padding(7, 7, 7, 7)
         Me.btnUpdate.Name = "btnUpdate"
-        Me.btnUpdate.Size = New System.Drawing.Size(75, 23)
+        Me.btnUpdate.Size = New System.Drawing.Size(175, 51)
         Me.btnUpdate.TabIndex = 16
         Me.btnUpdate.Text = "Update"
         Me.btnUpdate.UseVisualStyleBackColor = True
@@ -185,66 +206,115 @@ Partial Class EditAttendance
         'attendanceText
         '
         Me.attendanceText.AutoSize = True
-        Me.attendanceText.Location = New System.Drawing.Point(12, 135)
+        Me.attendanceText.Location = New System.Drawing.Point(28, 301)
+        Me.attendanceText.Margin = New System.Windows.Forms.Padding(7, 0, 7, 0)
         Me.attendanceText.Name = "attendanceText"
-        Me.attendanceText.Size = New System.Drawing.Size(95, 13)
+        Me.attendanceText.Size = New System.Drawing.Size(213, 29)
         Me.attendanceText.TabIndex = 17
         Me.attendanceText.Text = "Classes Attended :"
         '
         'Label1
         '
         Me.Label1.AutoSize = True
-        Me.Label1.Location = New System.Drawing.Point(13, 176)
+        Me.Label1.Location = New System.Drawing.Point(30, 393)
+        Me.Label1.Margin = New System.Windows.Forms.Padding(7, 0, 7, 0)
         Me.Label1.Name = "Label1"
-        Me.Label1.Size = New System.Drawing.Size(94, 13)
+        Me.Label1.Size = New System.Drawing.Size(205, 29)
         Me.Label1.TabIndex = 19
         Me.Label1.Text = "Classes Late        :"
         '
         'txtLateAtt
         '
-        Me.txtLateAtt.Location = New System.Drawing.Point(114, 173)
+        Me.txtLateAtt.Location = New System.Drawing.Point(266, 386)
+        Me.txtLateAtt.Margin = New System.Windows.Forms.Padding(7, 7, 7, 7)
         Me.txtLateAtt.Name = "txtLateAtt"
-        Me.txtLateAtt.Size = New System.Drawing.Size(29, 20)
+        Me.txtLateAtt.Size = New System.Drawing.Size(62, 35)
         Me.txtLateAtt.TabIndex = 18
         '
         'lblSubject
         '
         Me.lblSubject.AutoSize = True
-        Me.lblSubject.Location = New System.Drawing.Point(620, 30)
+        Me.lblSubject.Location = New System.Drawing.Point(1447, 67)
+        Me.lblSubject.Margin = New System.Windows.Forms.Padding(7, 0, 7, 0)
         Me.lblSubject.Name = "lblSubject"
-        Me.lblSubject.Size = New System.Drawing.Size(0, 13)
+        Me.lblSubject.Size = New System.Drawing.Size(0, 29)
         Me.lblSubject.TabIndex = 21
         '
         'Label3
         '
         Me.Label3.AutoSize = True
-        Me.Label3.Location = New System.Drawing.Point(565, 30)
+        Me.Label3.Location = New System.Drawing.Point(1318, 67)
+        Me.Label3.Margin = New System.Windows.Forms.Padding(7, 0, 7, 0)
         Me.Label3.Name = "Label3"
-        Me.Label3.Size = New System.Drawing.Size(49, 13)
+        Me.Label3.Size = New System.Drawing.Size(106, 29)
         Me.Label3.TabIndex = 20
         Me.Label3.Text = "Subject :"
         '
         'Label2
         '
         Me.Label2.AutoSize = True
-        Me.Label2.Location = New System.Drawing.Point(14, 218)
+        Me.Label2.Location = New System.Drawing.Point(33, 486)
+        Me.Label2.Margin = New System.Windows.Forms.Padding(7, 0, 7, 0)
         Me.Label2.Name = "Label2"
-        Me.Label2.Size = New System.Drawing.Size(94, 13)
+        Me.Label2.Size = New System.Drawing.Size(209, 29)
         Me.Label2.TabIndex = 23
         Me.Label2.Text = "Classes Absent    :"
         '
         'txtAbsent
         '
-        Me.txtAbsent.Location = New System.Drawing.Point(115, 215)
+        Me.txtAbsent.Location = New System.Drawing.Point(268, 480)
+        Me.txtAbsent.Margin = New System.Windows.Forms.Padding(7, 7, 7, 7)
         Me.txtAbsent.Name = "txtAbsent"
-        Me.txtAbsent.Size = New System.Drawing.Size(29, 20)
+        Me.txtAbsent.Size = New System.Drawing.Size(62, 35)
         Me.txtAbsent.TabIndex = 22
+        '
+        'lblPercent
+        '
+        Me.lblPercent.AutoSize = True
+        Me.lblPercent.Location = New System.Drawing.Point(978, 294)
+        Me.lblPercent.Margin = New System.Windows.Forms.Padding(7, 0, 7, 0)
+        Me.lblPercent.Name = "lblPercent"
+        Me.lblPercent.Size = New System.Drawing.Size(0, 29)
+        Me.lblPercent.TabIndex = 25
+        '
+        'Label5
+        '
+        Me.Label5.AutoSize = True
+        Me.Label5.Location = New System.Drawing.Point(673, 294)
+        Me.Label5.Margin = New System.Windows.Forms.Padding(7, 0, 7, 0)
+        Me.Label5.Name = "Label5"
+        Me.Label5.Size = New System.Drawing.Size(275, 29)
+        Me.Label5.TabIndex = 24
+        Me.Label5.Text = "Attendance Percentage :"
+        '
+        'lblTotalClass
+        '
+        Me.lblTotalClass.AutoSize = True
+        Me.lblTotalClass.Location = New System.Drawing.Point(295, 598)
+        Me.lblTotalClass.Margin = New System.Windows.Forms.Padding(7, 0, 7, 0)
+        Me.lblTotalClass.Name = "lblTotalClass"
+        Me.lblTotalClass.Size = New System.Drawing.Size(0, 29)
+        Me.lblTotalClass.TabIndex = 27
+        '
+        'Label6
+        '
+        Me.Label6.AutoSize = True
+        Me.Label6.Location = New System.Drawing.Point(80, 598)
+        Me.Label6.Margin = New System.Windows.Forms.Padding(7, 0, 7, 0)
+        Me.Label6.Name = "Label6"
+        Me.Label6.Size = New System.Drawing.Size(146, 29)
+        Me.Label6.TabIndex = 26
+        Me.Label6.Text = "Total Class :"
         '
         'EditAttendance
         '
-        Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
+        Me.AutoScaleDimensions = New System.Drawing.SizeF(14.0!, 29.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
-        Me.ClientSize = New System.Drawing.Size(790, 501)
+        Me.ClientSize = New System.Drawing.Size(1843, 1118)
+        Me.Controls.Add(Me.lblTotalClass)
+        Me.Controls.Add(Me.Label6)
+        Me.Controls.Add(Me.lblPercent)
+        Me.Controls.Add(Me.Label5)
         Me.Controls.Add(Me.Label2)
         Me.Controls.Add(Me.txtAbsent)
         Me.Controls.Add(Me.lblSubject)
@@ -268,6 +338,7 @@ Partial Class EditAttendance
         Me.Controls.Add(Me.intakeText)
         Me.Controls.Add(Me.lstStudentName)
         Me.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle
+        Me.Margin = New System.Windows.Forms.Padding(7, 7, 7, 7)
         Me.Name = "EditAttendance"
         Me.Text = "Edit Attendance"
         Me.ResumeLayout(False)
@@ -298,4 +369,8 @@ Partial Class EditAttendance
     Friend WithEvents Label3 As Label
     Friend WithEvents Label2 As Label
     Friend WithEvents txtAbsent As TextBox
+    Friend WithEvents lblPercent As Label
+    Friend WithEvents Label5 As Label
+    Friend WithEvents lblTotalClass As Label
+    Friend WithEvents Label6 As Label
 End Class

@@ -46,21 +46,38 @@
         latestatus = 0
         absentstatus = 0
 
-        If stdindex <> maxstudent - 1 Then
+        If stdindex <> maxstudent - 1 Or stdindex = maxstudent - 1 Then
             AddAttendance()
+            If stdindex = maxstudent - 1 Then
+                Dim ok As Integer = MessageBox.Show("Press OK to return to dashboard", "End of update", MessageBoxButtons.OK)
+                If ok = DialogResult.OK Then
+                    stdindex = 0
+                    Me.Hide()
+                    Dashboard.Show()
+                End If
+            End If
             stdindex = stdindex + 1
             StudentNav()
         Else
             MsgBox("No more students")
         End If
     End Sub
+
     Private Sub btnLate_Click(sender As Object, e As EventArgs) Handles btnLate.Click
         presentstatus = 0
         latestatus = 1
         absentstatus = 0
 
-        If stdindex <> maxstudent - 1 Then
+        If stdindex <> maxstudent - 1 Or stdindex = maxstudent - 1 Then
             AddAttendance()
+            If stdindex = maxstudent - 1 Then
+                Dim ok As Integer = MessageBox.Show("Press OK to return to dashboard", "End of update", MessageBoxButtons.OK)
+                If ok = DialogResult.OK Then
+                    stdindex = 0
+                    Me.Hide()
+                    Dashboard.Show()
+                End If
+            End If
             stdindex = stdindex + 1
             StudentNav()
         Else
@@ -73,8 +90,16 @@
         latestatus = 0
         absentstatus = 1
 
-        If stdindex <> maxstudent - 1 Then
+        If stdindex <> maxstudent - 1 Or stdindex = maxstudent - 1 Then
             AddAttendance()
+            If stdindex = maxstudent - 1 Then
+                Dim ok As Integer = MessageBox.Show("Press OK to return to dashboard", "End of update", MessageBoxButtons.OK)
+                If ok = DialogResult.OK Then
+                    stdindex = 0
+                    Me.Hide()
+                    Dashboard.Show()
+                End If
+            End If
             stdindex = stdindex + 1
             StudentNav()
         Else
@@ -85,17 +110,15 @@
 
     '================ START OF STUDENT DETAILS NAGIGATION =========================
     Private Sub StudentNav()
-        '========= DIM NEW ATTENDANCE ==========
-        Dim attendancesql As String = "SELECT * From Attendance WHERE SubjectCode='" & Dashboard.selectedsubject & "' AND TPNumber=" & selectedintakeds.Tables("Student").Rows(stdindex).Item(0)
+        Dim attendancesql As String = "SELECT * From Attendance WHERE SubjectCode=" & Dashboard.selectedsubject & " AND TPNumber=" & selectedintakeds.Tables("Student").Rows(stdindex).Item(0)
         Dim attendanceds As New DataSet
         Dim attendanceda As OleDb.OleDbDataAdapter = New OleDb.OleDbDataAdapter(attendancesql, con)
 
-        ' -------- Load database to display Student Attendance Details --------------------------
         con.ConnectionString = dbProvider & dbSource
         con.Open()
         attendanceda.Fill(attendanceds, "Attendance")
         con.Close()
-
+        '===== CALCULATION =====
         lblTotalClass.Text = attendanceds.Tables("Attendance").Rows(0).Item(1)
         lblPresent.Text = attendanceds.Tables("Attendance").Rows(0).Item(2)
         lblAbsent.Text = attendanceds.Tables("Attendance").Rows(0).Item(3)
@@ -107,15 +130,24 @@
         late = lblLate.Text
 
         classpercent = ((present + (late * 0.5)) / totalclass) * 100
-        lblPercent.Text = String.Format("{0:000.00}%", classpercent)
+
+        If classpercent < 10 Then
+            lblPercent.Text = String.Format("{0:0.00}%", classpercent)
+        ElseIf classpercent < 100 Then
+            lblPercent.Text = String.Format("{0:00.00}%", classpercent)
+        Else
+            lblPercent.Text = String.Format("{0:000.00}%", classpercent)
+        End If
+
 
         lblTP.Text = (String.Format("TP{0:000000}", selectedintakeds.Tables("Student").Rows(stdindex).Item(0)))
         lstStudentName.SelectedIndex = stdindex
     End Sub
     '================ END OF STUDENT DETAILS NAGIGATION =========================
+
     Private Sub AddAttendance()
         '============ DIM NEW ATTENDANCE
-        Dim attendancesql As String = "SELECT * From Attendance WHERE SubjectCode='" & Dashboard.selectedsubject & "' AND TPNumber=" & selectedintakeds.Tables("Student").Rows(stdindex).Item(0)
+        Dim attendancesql As String = "SELECT * From Attendance WHERE SubjectCode=" & Dashboard.selectedsubject & " AND TPNumber=" & selectedintakeds.Tables("Student").Rows(stdindex).Item(0)
         Dim attendanceds As New DataSet
         Dim attendanceda As OleDb.OleDbDataAdapter = New OleDb.OleDbDataAdapter(attendancesql, con)
 

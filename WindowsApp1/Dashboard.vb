@@ -95,7 +95,7 @@
         subjectinc = -1
         Do While subjectinc < maxsubject - 1
             subjectinc = subjectinc + 1
-            lstIntakecode.Items.Add(subjectds.Tables("IntakeSubjects").Rows(subjectinc).Item(0))
+            lstIntakecode.Items.Add("S0" & subjectds.Tables("IntakeSubjects").Rows(subjectinc).Item(0))
         Loop
         btn_newatt.Enabled = True
         btnEdit.Enabled = True
