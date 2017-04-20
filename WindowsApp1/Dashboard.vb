@@ -38,9 +38,8 @@
     '===========Edit Attendance Button ===============
     Private Sub btn_newatt_Click(sender As Object, e As EventArgs) Handles btn_newatt.Click
         If lstIntakecode.SelectedIndex >= 0 Then
-            selectedsubject = lstIntakecode.SelectedItem
+            selectedsubject = lstIntakecode.SelectedItem.ToString.Replace("S0", "")
             Me.Hide()
-            MsgBox(selectedsubject)
             AddAttendance.Show()
         Else
             MessageBox.Show("Select a subject", "Subject not found", MessageBoxButtons.OK, MessageBoxIcon.Asterisk)
@@ -49,7 +48,7 @@
 
     Private Sub btnEdit_Click(sender As Object, e As EventArgs) Handles btnEdit.Click
         If lstIntakecode.SelectedIndex >= 0 Then
-            selectedsubject = lstIntakecode.SelectedItem
+            selectedsubject = lstIntakecode.SelectedItem.ToString.Replace("S0", "")
             Me.Hide()
             EditAttendance.Show()
         Else
@@ -73,7 +72,6 @@
         lstIntakecode.Items.Clear()
         btnEdit.Enabled = False
         btn_newatt.Enabled = False
-        Button2.Enabled = False
         inc = -1
         maxintake = intakeds.Tables("Student").Rows.Count
         Do While inc < maxintake - 1
@@ -104,7 +102,8 @@
     End Sub
 
     Private Sub Button2_Click(sender As Object, e As EventArgs) Handles Button2.Click
-        ViewReport.Show()
+        ViewReport1.Show()
+
     End Sub
 
     Private Sub btnBack_Click(sender As Object, e As EventArgs) Handles btnBack.Click
@@ -112,6 +111,7 @@
         btnBack.Hide()
         btnNext.Show()
     End Sub
+
 
     Private Sub ChangePasswordToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles ChangePasswordToolStripMenuItem.Click
         ChangePassword.Show()

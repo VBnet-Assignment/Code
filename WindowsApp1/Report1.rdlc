@@ -74,7 +74,7 @@
                       <Value>=Fields!SubjectCode.Value</Value>
                     </SortExpression>
                   </SortExpressions>
-                  <Label>=Fields!SubjectCode.Value</Label>
+                  <Label>="S0" &amp; Fields!SubjectCode.Value</Label>
                 </ChartMember>
               </ChartMembers>
             </ChartCategoryHierarchy>
@@ -446,7 +446,7 @@
             </ChartLegends>
             <ChartTitles>
               <ChartTitle Name="Default">
-                <Caption>Chart Title</Caption>
+                <Caption>Attendance Report</Caption>
                 <Style>
                   <BackgroundGradientType>None</BackgroundGradientType>
                   <FontSize>9pt</FontSize>
@@ -476,8 +476,8 @@
               </Style>
             </ChartNoDataMessage>
             <DataSetName>DataSet1</DataSetName>
-            <Height>6.92828cm</Height>
-            <Width>16.51cm</Width>
+            <Height>8.49226cm</Height>
+            <Width>19.72028cm</Width>
             <Style>
               <Border>
                 <Color>LightGrey</Color>
@@ -488,10 +488,10 @@
             </Style>
           </Chart>
         </ReportItems>
-        <Height>2.72767in</Height>
+        <Height>3.35267in</Height>
         <Style />
       </Body>
-      <Width>6.5in</Width>
+      <Width>7.78241in</Width>
       <Page>
         <PageHeight>29.7cm</PageHeight>
         <PageWidth>21cm</PageWidth>

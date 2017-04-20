@@ -20,7 +20,7 @@
         selectedintakeda.Fill(selectedintakeds, "Student")
         con.Close()
 
-        Me.Text = "Attendence – " & Dashboard.lectureName & " (" & Dashboard.lectureID & ")"
+        Me.Text = "Attendance – " & Dashboard.lectureName & " (" & Dashboard.lectureID & ")"
         lblIntake.Text = Dashboard.selectedintake
         lblSubject.Text = Dashboard.selectedsubject
         inc = -1
